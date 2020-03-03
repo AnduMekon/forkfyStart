@@ -1,4 +1,11 @@
 // Global app controlle
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+
+ReactDOM.render(<App/>, document.getElementById('app'));
+
 var myHeaders = new Headers();
 myHeaders.append("user-key", "1d803d49a12fc2e1d8c6b5fbb2f37073");
 var requestOptions = {
@@ -10,5 +17,3 @@ fetch("https://developers.zomato.com/api/v2.1/restaurant?res_id=16869315", reque
   .then(response => response.text())
   .then(result => console.log(result))
   .catch(error => console.log('error', error));
-
-  
