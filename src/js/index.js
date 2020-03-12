@@ -1,19 +1,27 @@
-// Global app controlle
+import Search from './models/Search';
+import * as searchViews from './views/searchView';
+import {elements} from './views/base';
+/**
+ * Global State of the app
+ * Search Object
+ * Current recipe object
+ * Shopping list object
+ * Liked recipes
+ */
+const state = { };
+const controlSearch = async () => {
+    const query = 'pizza';
+    if (query) {
 
-import React from 'react';
-import ReactDOM from 'react-dom';
+        state.search = new Search(query)
 
+        await state.search.getResults()
+        state.search.getResults();
+        console.log(state.search.result)
+    }
 
-ReactDOM.render(<App/>, document.getElementById('app'));
-
-var myHeaders = new Headers();
-myHeaders.append("user-key", "1d803d49a12fc2e1d8c6b5fbb2f37073");
-var requestOptions = {
-  method: 'GET',
-  headers: myHeaders,
-  redirect: 'follow'
-};
-fetch("https://developers.zomato.com/api/v2.1/restaurant?res_id=16869315", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
+}
+elements.searchForm.addEventListener('submit', e => {
+    e.preventDefault();
+    controlSearch();
+});
