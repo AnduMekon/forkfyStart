@@ -1,5 +1,7 @@
 // Global app controller
 import axios from 'axios';
+
+
 async function getResults(query, count, sort) {
 
     
@@ -14,4 +16,21 @@ async function getResults(query, count, sort) {
 
 
 }
-getResults('Ethiopia', 20 , 'cost');
+
+const query = document.querySelector('.search__field').value;
+
+getResults('ethiopia');
+  
+var Person = function (name, yearOfBirth, job) {
+    this.name = name;
+    this.yearOfBirth = yearOfBirth;
+    this.job = job;
+}
+var Jhon = new Person ('jone', 1958, 'casher');
+console.log(Jhon);
+console.log(Jhon.name);
+
+/*elements.searchForm.addEventListener('submit', e => {
+    e.preventDefault();
+    controlSearch();
+});*/
